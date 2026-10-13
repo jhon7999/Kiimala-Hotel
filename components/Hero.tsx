@@ -6,15 +6,15 @@ import { Boton, Kicker } from "./ui";
 import { FOTO } from "@/data/fotos";
 
 // Fotos del fondo y de la rueda: la misma lista, en el mismo orden.
+// Solo fotos de 1400 px de ancho o más: las de menor resolución se ven borrosas a pantalla completa.
 const FOTOS = [
-  { src: FOTO.piscinaInfinita, alt: "Piscina infinita rodeada de palmeras" },
-  { src: FOTO.piscinaCabanas, alt: "Piscina y cabañas blancas entre palmeras" },
   { src: FOTO.playaPalapas, alt: "Playa con palapas frente a Kiimala" },
-  { src: FOTO.atardecer, alt: "Atardecer en el Golfo de Morrosquillo" },
+  { src: FOTO.piscinaInfinita, alt: "Piscina infinita rodeada de palmeras" },
   { src: FOTO.playaNoche, alt: "Mesa con luces cálidas en la playa" },
   { src: FOTO.piscinaPalmas, alt: "Piscina entre palmeras" },
-  { src: FOTO.pergola, alt: "Terraza con pérgola junto a la piscina" },
-  { src: FOTO.senderoCabanas, alt: "Sendero entre cabañas blancas" },
+  { src: FOTO.piscinaCabanas, alt: "Piscina y cabañas blancas entre palmeras" },
+  { src: FOTO.atardecer, alt: "Atardecer en el Golfo de Morrosquillo" },
+  { src: FOTO.calleBlanca, alt: "Camino blanco entre palmeras y cabañas" },
 ];
 const N = FOTOS.length;
 const PASO = 360 / N; // grados entre foto y foto en la rueda
@@ -47,7 +47,7 @@ export default function Hero() {
           const cerca = [0, 1, N - 1].includes((k - i + N) % N); // carga solo actual, siguiente y anterior
           return (
             <div key={f.src} className={`hero-slide absolute inset-0 ${k === i ? "activa" : ""}`}>
-              {(cerca || k === 0) && <Image src={f.src} alt={k === i ? f.alt : ""} fill priority={k === 0} sizes="100vw" quality={70} className="object-cover" />}
+              {(cerca || k === 0) && <Image src={f.src} alt={k === i ? f.alt : ""} fill priority={k === 0} sizes="100vw" quality={85} className="object-cover" />}
             </div>
           );
         })}

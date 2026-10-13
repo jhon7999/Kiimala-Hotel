@@ -47,7 +47,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.1;
 .hero-slide { opacity: 0; transition: opacity 1.4s ease-in-out; }
 .hero-slide.activa { opacity: 1; }
 .hero-slide.activa img { animation: zoom-lento 9s ease-out forwards; }
-@keyframes zoom-lento { from { transform: scale(1); } to { transform: scale(1.1); } }
+@keyframes zoom-lento { from { transform: scale(1); } to { transform: scale(1.05); } }
 
 /* Rueda de fotos: centro del círculo a la derecha; a=0 es el punto más a la izquierda. */
 .rueda { --R: 230px; width: 0; height: 0; }

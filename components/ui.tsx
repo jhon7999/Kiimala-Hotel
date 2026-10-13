@@ -28,7 +28,7 @@ export function Titulo({ kicker, titulo, texto, claro }: { kicker?: string; titu
 export function PaginaHero({ kicker, titulo, texto, foto }: { kicker: string; titulo: string; texto?: string; foto: string }) {
   return (
     <section className="relative flex min-h-[58vh] items-end overflow-hidden bg-tinta text-hueso">
-      <Image src={foto} alt="" fill priority sizes="100vw" className="object-cover opacity-80" />
+      <Image src={foto} alt="" fill priority sizes="100vw" quality={85} className="object-cover opacity-80" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
       <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-40">
         <Kicker claro>{kicker}</Kicker>
