@@ -27,10 +27,10 @@ export function Titulo({ kicker, titulo, texto, claro }: { kicker?: string; titu
 /** Cabecera de subpágina: foto real a todo el ancho con título. */
 export function PaginaHero({ kicker, titulo, texto, foto }: { kicker: string; titulo: string; texto?: string; foto: string }) {
   return (
-    <section className="relative flex min-h-[58vh] items-end overflow-hidden bg-tinta text-center text-hueso">
+    <section className="relative flex min-h-[52vh] items-center overflow-hidden bg-tinta text-center text-hueso">
       <Image src={foto} alt="" fill priority sizes="100vw" quality={85} className="object-cover opacity-80" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-40">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-12 pt-32">
         <Kicker claro>{kicker}</Kicker>
         <h1 className="mx-auto mt-3 max-w-3xl text-5xl md:text-7xl">{titulo}</h1>
         {texto && <p className="mx-auto mt-4 max-w-2xl text-lg text-hueso/90">{texto}</p>}
