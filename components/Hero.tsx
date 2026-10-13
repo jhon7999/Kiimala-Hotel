@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-black/60" />
 
       {/* Rueda: a la izquierda la foto que se proyecta; arriba la siguiente; abajo la anterior. */}
-      <div className="rueda pointer-events-none absolute right-6 top-[44%] hidden lg:block">
+      <div className="rueda pointer-events-none absolute -right-4 top-[44%] hidden lg:block">
         <div className="rueda-giro" style={{ ["--rot" as string]: -vuelta * PASO }}>
           {FOTOS.map((f, k) => {
             let d = k - i;
