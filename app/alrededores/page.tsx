@@ -24,7 +24,7 @@ export default function Alrededores() {
           <Titulo titulo={g.titulo} />
           <div className="mt-8 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
             {g.fotos.map(([src, alt], i) => (
-              <Foto key={src} src={src} alt={alt} className={`${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/5]"} break-inside-avoid rounded-3xl`} sizes="(min-width: 768px) 33vw, 50vw" />
+              <Foto key={src} src={src} alt={alt} zoom="galeria" className={`${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/5]"} break-inside-avoid rounded-3xl`} sizes="(min-width: 768px) 33vw, 50vw" />
             ))}
           </div>
         </Seccion>

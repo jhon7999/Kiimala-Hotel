@@ -53,10 +53,12 @@ export function Boton({ href, children, variante = "terracota" }: { href: string
   );
 }
 
-export function Foto({ src, alt, className = "", sizes = "(min-width: 768px) 50vw, 100vw", priority, posicion = "center" }: { src: string; alt: string; className?: string; sizes?: string; priority?: boolean; posicion?: string }) {
+export function Foto({ src, alt, className = "", sizes = "(min-width: 768px) 50vw, 100vw", priority, posicion = "center", zoom }: { src: string; alt: string; className?: string; sizes?: string; priority?: boolean; posicion?: string; zoom?: string }) {
+  // zoom="grupo": al hacer clic se abre ampliado en el visor (components/Lightbox.tsx)
+  const ampliable = zoom ? { "data-zoom": zoom, "data-src": src, "data-alt": alt, role: "button", tabIndex: 0, "aria-label": `Ampliar foto: ${alt}` } : {};
   return (
-    <div className={`${className.includes("absolute") ? "" : "relative"} overflow-hidden ${className}`}>
-      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover transition duration-700 hover:scale-105" style={{ objectPosition: posicion }} />
+    <div {...ampliable} className={`${className.includes("absolute") ? "" : "relative"} overflow-hidden ${zoom ? "cursor-zoom-in" : ""} ${className}`}>
+      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} draggable={false} className="object-cover transition duration-700 hover:scale-105" style={{ objectPosition: posicion }} />
     </div>
   );
 }

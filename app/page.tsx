@@ -33,7 +33,7 @@ export default function Inicio() {
               <Boton href="/ubicacion" variante="borde">Cómo llegar</Boton>
             </div>
           </div>
-          <Foto src={FOTO.piscinaAerea} alt="Vista de la piscina y la playa de Kiimala" className="aspect-[4/3] rounded-[2rem]" />
+          <Foto src={FOTO.piscinaAerea} alt="Vista de la piscina y la playa de Kiimala" zoom="inicio" className="mx-auto aspect-[4/3] w-full max-w-xl rounded-[2rem]" />
         </div>
       </Seccion>
 

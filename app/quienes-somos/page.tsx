@@ -28,7 +28,7 @@ export default function QuienesSomos() {
             />
             <p className="mt-4 text-lg opacity-80">Muchos de nuestros huéspedes nos dicen que quieren volver. Para nosotros, esa es la mejor reseña.</p>
           </div>
-          <Foto src={FOTO.equipo} alt="Parte del equipo de Kiimala" className="aspect-[4/5] rounded-[2rem]" />
+          <Foto src={FOTO.equipo} alt="Parte del equipo de Kiimala" zoom="nosotros" className="mx-auto aspect-[4/5] w-full max-w-md rounded-[2rem]" />
         </div>
       </Seccion>
 
@@ -46,7 +46,7 @@ export default function QuienesSomos() {
 
       <Seccion>
         <div className="grid items-center gap-12 md:grid-cols-2">
-          <Foto src={FOTO.playaNoche} alt="Mesa en la playa con luces cálidas" className="aspect-[4/3] rounded-[2rem]" />
+          <Foto src={FOTO.playaNoche} alt="Mesa en la playa con luces cálidas" zoom="nosotros" className="mx-auto aspect-[4/3] w-full max-w-xl rounded-[2rem]" />
           <div>
             <Titulo kicker="Aliados" titulo="Viaja con nosotros desde Medellín" texto="Trabajamos de la mano con Destidnos, agencia de viajes aliada, para quienes quieren llegar con transporte y plan completo." />
             <div className="mt-6 flex flex-wrap justify-center gap-3">

@@ -4,6 +4,7 @@ import "./globals.css";
 import { SITE } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Lightbox from "@/components/Lightbox";
 import JsonLd from "@/components/JsonLd";
 import { hotelLd } from "@/lib/schema";
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <Lightbox />
       </body>
     </html>
   );

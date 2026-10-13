@@ -57,7 +57,7 @@ export default async function HabitacionPage({ params }: Props) {
 
         <div className="mt-14 grid gap-4 sm:grid-cols-3">
           {h.fotos.map((f, i) => (
-            <Foto key={f} src={f} alt={`${h.nombre}, foto ${i + 1}`} className="aspect-[4/5] rounded-3xl" sizes="(min-width: 640px) 33vw, 100vw" />
+            <Foto key={f} src={f} zoom="habitacion" alt={`${h.nombre}, foto ${i + 1}`} className="aspect-[4/5] rounded-3xl" sizes="(min-width: 640px) 33vw, 100vw" />
           ))}
         </div>
       </Seccion>

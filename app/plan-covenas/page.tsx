@@ -44,7 +44,7 @@ export default function PlanCovenas() {
               <Boton href="/contacto" variante="borde">Preguntar por fechas</Boton>
             </div>
           </div>
-          <Foto src={FOTO.playaTuristas} alt="Huéspedes en la playa de Kiimala" className="aspect-[4/5] rounded-[2rem]" />
+          <Foto src={FOTO.playaTuristas} alt="Huéspedes en la playa de Kiimala" zoom="plan" className="mx-auto aspect-[4/5] w-full max-w-md rounded-[2rem]" />
         </div>
       </Seccion>
 
