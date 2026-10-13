@@ -8,6 +8,7 @@ export const SITE = {
   whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP ?? "").replace(/\D/g, ""),
   instagram: "https://www.instagram.com/kiimalahotel/",
   instagramUsuario: "@kiimalahotel",
+  facebook: "https://www.facebook.com/p/Kiimala-Hotel-61576158310874/",
   destidnos: "https://destidnos.com",
   ciudad: "Coveñas",
   region: "Sucre",

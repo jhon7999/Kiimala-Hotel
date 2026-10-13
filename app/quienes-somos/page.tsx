@@ -49,7 +49,7 @@ export default function QuienesSomos() {
           <Foto src={FOTO.playaNoche} alt="Mesa en la playa con luces cálidas" className="aspect-[4/3] rounded-[2rem]" />
           <div>
             <Titulo kicker="Aliados" titulo="Viaja con nosotros desde Medellín" texto="Trabajamos de la mano con Destidnos, agencia de viajes aliada, para quienes quieren llegar con transporte y plan completo." />
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Boton href="/plan-covenas">Plan Coveñas</Boton>
               <Boton href={SITE.destidnos} variante="borde">Conocer Destidnos</Boton>
             </div>

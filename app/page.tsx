@@ -28,7 +28,7 @@ export default function Inicio() {
               titulo="Hay lugares que parecen sacados de un sueño"
               texto="Kiimala Villas & Hotel está en Coveñas, a pocos pasos del mar. Cabañas blancas, piscina entre palmeras, cenas bajo luces cálidas y un equipo que te hace sentir en casa."
             />
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Boton href="/quienes-somos" variante="borde">Quiénes somos</Boton>
               <Boton href="/ubicacion" variante="borde">Cómo llegar</Boton>
             </div>
@@ -43,7 +43,7 @@ export default function Inicio() {
           {ALREDEDOR.map((a) => (
             <figure key={a.t} className={`relative overflow-hidden rounded-3xl ${a.c}`}>
               <Foto src={a.f} alt={a.t} className="absolute inset-0" sizes="(min-width: 768px) 25vw, 50vw" />
-              <figcaption className="vidrio absolute bottom-3 left-3 rounded-full bg-black/30 px-4 py-1.5 text-sm text-hueso">{a.t}</figcaption>
+              <figcaption className="vidrio absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/30 px-4 py-1.5 text-sm text-hueso">{a.t}</figcaption>
             </figure>
           ))}
         </div>

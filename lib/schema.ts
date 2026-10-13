@@ -9,7 +9,7 @@ export function hotelLd() {
     url: SITE.url,
     image: `${SITE.url}/fotos/kiimala-piscina-infinita-palmeras-cielo-azul.jpg`,
     description: "Hotel y villas en Coveñas, Sucre, con piscina, playa y habitaciones cómodas.",
-    sameAs: [SITE.instagram],
+    sameAs: [SITE.instagram, SITE.facebook],
     address: { "@type": "PostalAddress", addressLocality: SITE.ciudad, addressRegion: SITE.region, addressCountry: SITE.pais },
     geo: { "@type": "GeoCoordinates", latitude: SITE.geo.lat, longitude: SITE.geo.lng },
     checkinTime: "15:00",

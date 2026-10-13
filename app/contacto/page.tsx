@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { PaginaHero, Seccion } from "@/components/ui";
 import ContactoResumen from "@/components/ContactoResumen";
 import { FOTO } from "@/data/fotos";
+import Redes from "@/components/Redes";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,8 +24,8 @@ export default function Contacto() {
             <h2 className="text-3xl">Canales</h2>
             <ul className="mt-4 space-y-3">
               <li>
-                <span className="text-xs uppercase tracking-widest text-terracota-osc">Instagram</span><br />
-                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="underline">{SITE.instagramUsuario}</a>
+                <span className="text-xs uppercase tracking-widest text-terracota-osc">Síguenos</span>
+                <Redes className="mt-2" />
               </li>
               <li>
                 <span className="text-xs uppercase tracking-widest text-terracota-osc">Agencia aliada</span><br />

@@ -22,7 +22,7 @@ export default function PlanCovenas() {
               <h3 className="text-3xl">{p.nombre}</h3>
               <p className="mt-2 opacity-80">{p.resumen}</p>
               <ul className="mt-5 space-y-1.5">
-                {p.incluye.map((i) => <li key={i} className="flex gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>{i}</li>)}
+                {p.incluye.map((i) => <li key={i} className="flex justify-center gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>{i}</li>)}
               </ul>
               {p.nota && <p className="mt-5 text-sm font-medium text-palma">{p.nota}</p>}
             </article>
@@ -35,11 +35,11 @@ export default function PlanCovenas() {
           <div>
             <Titulo kicker="Con transporte" titulo="Sales de Medellín, llegas a la playa" texto="Con Destidnos, nuestra agencia aliada, viajas en bus ida y regreso, con seguro de viaje y hospedaje en Kiimala. Tú solo empacas." />
             <ul className="mt-6 space-y-2">
-              <li className="flex gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Salidas programadas por calendario (semana, fin de semana y puentes).</li>
-              <li className="flex gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Habitación Múltiple, Triple o Doble.</li>
-              <li className="flex gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Plan de alimentación a tu elección.</li>
+              <li className="flex justify-center gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Salidas programadas por calendario (semana, fin de semana y puentes).</li>
+              <li className="flex justify-center gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Habitación Múltiple, Triple o Doble.</li>
+              <li className="flex justify-center gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>Plan de alimentación a tu elección.</li>
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Boton href={SITE.destidnos}>Ver salidas en Destidnos</Boton>
               <Boton href="/contacto" variante="borde">Preguntar por fechas</Boton>
             </div>

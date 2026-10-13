@@ -85,7 +85,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-6 pb-10 pt-32">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center justify-end px-6 pb-10 pt-32 text-center lg:items-start lg:text-left">
         <Kicker claro>Coveñas · Sucre · Colombia</Kicker>
         <h1 className="mt-4 max-w-3xl text-6xl md:text-8xl">
           Un refugio <em className="text-arena">para el alma</em>
@@ -93,11 +93,11 @@ export default function Hero() {
         <p className="mt-5 max-w-xl text-lg text-hueso/90">
           Sol, playa y buena vibra. Piscina entre palmeras, habitaciones cómodas y el mar a pocos pasos.
         </p>
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Boton href="/habitaciones">Ver habitaciones</Boton>
           <Boton href="/plan-covenas" variante="claro">Plan Coveñas</Boton>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 w-full text-left">
           <BookingBar />
         </div>
       </div>

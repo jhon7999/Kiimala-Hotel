@@ -43,7 +43,7 @@ export default async function HabitacionPage({ params }: Props) {
             <h3 className="mt-10 text-2xl">Incluye</h3>
             <ul className="mt-3 grid gap-2 sm:grid-cols-2">
               {h.incluye.map((i) => (
-                <li key={i} className="flex gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>{i}</li>
+                <li key={i} className="flex justify-center gap-2"><span className="text-terracota-osc" aria-hidden>✦</span>{i}</li>
               ))}
             </ul>
           </div>
