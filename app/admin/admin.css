@@ -1,0 +1,108 @@
+/* Panel de administración de Kiimala — "liquid glass" con la paleta de la marca (tropical nocturno). */
+.adm {
+  --a-fondo: #0e1b14;
+  --a-texto: #fbf7ef;
+  --a-suave: rgb(251 247 239 / 0.68);
+  --a-borde: rgb(255 255 255 / 0.13);
+  --a-panel: rgb(255 255 255 / 0.07);
+  --a-libre: #34d399;
+  --a-aviso: #fbbf24;
+  --a-peligro: #f87171;
+  --a-info: #67e8f9;
+  color-scheme: dark;
+  min-height: 100dvh;
+  color: var(--a-texto);
+  font-weight: 400;
+  background:
+    radial-gradient(60rem 36rem at 8% -8%, rgb(201 123 74 / 0.2), transparent 62%),
+    radial-gradient(48rem 36rem at 100% 12%, rgb(231 217 194 / 0.1), transparent 60%),
+    linear-gradient(160deg, #0c1812, #163020 58%, #0e1b14);
+  background-attachment: fixed;
+}
+.adm { font-variant-numeric: lining-nums; }
+.adm h1, .adm h2, .adm h3, .adm .font-serif { font-feature-settings: "lnum" 1; }
+.adm h1, .adm h2, .adm h3 { font-family: var(--font-cormorant), Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
+
+/* Superficies */
+.cristal {
+  background: var(--a-panel);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--a-borde);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.35);
+  border-radius: 20px;
+}
+/* Superficie sólida: tablas y formularios largos (legibilidad antes que atmósfera) */
+.solido { background: #15281d; border: 1px solid rgb(255 255 255 / 0.09); border-radius: 20px; }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 44px; padding: 0.55rem 1.1rem; border-radius: 12px; font-size: 0.9rem; font-weight: 500;
+  border: 1px solid var(--a-borde); background: rgb(255 255 255 / 0.08); color: var(--a-texto);
+  transition: background 0.15s, transform 0.1s, opacity 0.15s; cursor: pointer; text-align: center;
+}
+.btn:hover { background: rgb(255 255 255 / 0.15); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; pointer-events: none; }
+.btn-p { background: #a5532b; border-color: transparent; color: #fff; box-shadow: 0 6px 20px rgb(165 83 43 / 0.35); }
+.btn-p:hover { background: #b65f33; }
+.btn-ok { background: rgb(52 211 153 / 0.16); border-color: rgb(52 211 153 / 0.4); color: #a7f3d0; }
+.btn-ok:hover { background: rgb(52 211 153 / 0.26); }
+.btn-peligro { background: rgb(248 113 113 / 0.14); border-color: rgb(248 113 113 / 0.4); color: #fecaca; }
+.btn-peligro:hover { background: rgb(248 113 113 / 0.24); }
+.btn-sm { min-height: 36px; padding: 0.3rem 0.8rem; font-size: 0.8rem; border-radius: 10px; }
+.adm a:focus-visible, .adm button:focus-visible, .adm input:focus-visible, .adm select:focus-visible, .adm textarea:focus-visible, .adm summary:focus-visible {
+  outline: 2px solid #e7d9c2; outline-offset: 2px;
+}
+
+/* Campos */
+.campo {
+  width: 100%; min-height: 44px; padding: 0.55rem 0.85rem; border-radius: 12px; font-size: 0.95rem;
+  background: rgb(255 255 255 / 0.06); border: 1px solid var(--a-borde); color: var(--a-texto);
+}
+.campo::placeholder { color: rgb(251 247 239 / 0.4); }
+.campo:focus { border-color: #e7d9c2; background: rgb(255 255 255 / 0.1); }
+.campo option { color: #1c1a15; }
+.etiqueta { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--a-suave); margin-bottom: 0.3rem; }
+.error-txt { color: #fecaca; font-size: 0.85rem; }
+
+/* Chips de estado (siempre con texto: nunca solo color) */
+.chip { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 500; border: 1px solid transparent; }
+.chip::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 999px; background: currentColor; }
+.chip-libre { color: #6ee7b7; background: rgb(52 211 153 / 0.14); border-color: rgb(52 211 153 / 0.3); }
+.chip-ocupada { color: #fdba8c; background: rgb(201 123 74 / 0.2); border-color: rgb(201 123 74 / 0.45); }
+.chip-reservada { color: #e7d9c2; background: rgb(231 217 194 / 0.12); border-color: rgb(231 217 194 / 0.3); }
+.chip-sucia { color: #fcd34d; background: rgb(251 191 36 / 0.14); border-color: rgb(251 191 36 / 0.35); }
+.chip-limpiando { color: #a5f3fc; background: rgb(103 232 249 / 0.13); border-color: rgb(103 232 249 / 0.35); }
+.chip-bloqueada { color: #cbd5e1; background: rgb(148 163 184 / 0.14); border-color: rgb(148 163 184 / 0.3); }
+.chip-cancelada { color: #fecaca; background: rgb(248 113 113 / 0.12); border-color: rgb(248 113 113 / 0.3); }
+
+/* Entrada escalonada (una sola secuencia al cargar) */
+@keyframes sube { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.sube { animation: sube 0.5s ease-out both; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes latido { 0%, 100% { box-shadow: 0 0 0 0 rgb(251 191 36 / 0.5); } 50% { box-shadow: 0 0 0 8px rgb(251 191 36 / 0); } }
+.latido { animation: latido 1.8s ease-out infinite; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-12px) scale(0.97); } to { opacity: 1; transform: none; } }
+.toast { animation: toast-in 0.3s ease-out both; }
+@keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+
+/* Calendario */
+.cal-celda { border-right: 1px solid rgb(255 255 255 / 0.05); border-bottom: 1px solid rgb(255 255 255 / 0.05); }
+.cal-hoy { background: rgb(201 123 74 / 0.12); }
+.cal-finde { background: rgb(255 255 255 / 0.025); }
+.cal-bloqueo { background-image: repeating-linear-gradient(45deg, rgb(148 163 184 / 0.28) 0 6px, rgb(148 163 184 / 0.1) 6px 12px); }
+.scroll-fino { scrollbar-width: thin; scrollbar-color: rgb(255 255 255 / 0.25) transparent; }
+
+/* Impresión del recibo */
+@media print {
+  .adm { background: #fff !important; color: #000 !important; }
+  .no-imprimir { display: none !important; }
+  .recibo { box-shadow: none !important; border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; }
+  .recibo * { color: #000 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sube, .latido, .toast { animation: none; }
+  .btn { transition: none; }
+}

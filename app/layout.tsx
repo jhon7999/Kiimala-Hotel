@@ -2,11 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Lightbox from "@/components/Lightbox";
-import JsonLd from "@/components/JsonLd";
-import { hotelLd } from "@/lib/schema";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-cormorant" });
 const sans = Jost({ subsets: ["latin"], weight: ["300", "400", "500", "600"], variable: "--font-jost" });
@@ -26,11 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-CO" className={`${serif.variable} ${sans.variable}`}>
       <body>
-        <JsonLd data={hotelLd()} />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <Lightbox />
+        {children}
       </body>
     </html>
   );

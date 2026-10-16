@@ -34,3 +34,23 @@ npm run build && npm run start -- -p 3100
 
 ## Marca
 Colores y tipografías en `app/globals.css` (ver `01-marca/MARCA.md`). Logos derivados en `public/marca` (tinta / hueso / K).
+
+---
+
+## Panel del hotel (`/admin`) — software de gestión de Kiimala
+
+Login con usuario y contraseña, roles (admin, recepción, ventas, limpieza), calendario de disponibilidad, reservas con asignación sugerida de habitaciones, check-in / check-out, abonos y recibo imprimible, limpieza con avisos sonoros, bloqueos por mantenimiento, usuarios y una API de solo lectura para Destidnos. Se instala como app en Android (PWA).
+
+```bash
+npm run db:push        # crea las tablas (sin DATABASE_URL usa una base local de pruebas en .data/)
+npm run seed           # 22 habitaciones reales + usuarios y reservas FICTICIAS (contraseñas en .data/credenciales-demo.txt)
+npm run seed:prod      # producción: solo habitaciones reales + el administrador (ADMIN_USUARIO / ADMIN_CLAVE)
+npm run build && SESSION_SECRET=<32+ caracteres> npm run start -- -p 3100
+npm run smoke          # prueba de humo (lógica + rutas) con el servidor levantado
+```
+
+- Variables: ver `.env.example`. En Vercel hacen falta `DATABASE_URL` y `SESSION_SECRET`.
+- Inventario real de habitaciones: `lib/inventario.ts` (22 habitaciones, 92 personas).
+- API para Destidnos: `GET /api/v1/disponibilidad?entrada=…&salida=…&personas=N` con `Authorization: Bearer kmk_…` (token creado en Panel → Integraciones). Nunca devuelve datos de huéspedes.
+- Datos de huéspedes: nunca van en el repo ni en datos de prueba. Los de demostración son ficticios.
+- Pendiente de la siguiente fase: factura electrónica (Alegra/Siigo), reporte de extranjeros a Migración (SIRE/TRA), pre-check-in por WhatsApp, reportes de ocupación.
