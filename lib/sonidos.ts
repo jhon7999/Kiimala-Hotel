@@ -43,3 +43,15 @@ export function sonar(tono: Tono) {
   else if (tono === "exito") { nota(784, 0, 0.18); nota(1175, 0.1, 0.35); }
   else { nota(330, 0, 0.25, "square", 0.08); nota(330, 0.3, 0.25, "square", 0.08); }
 }
+
+/** Para el botón "Probar": reproduce los dos avisos del panel, uno tras otro. */
+export function probarSonidos() {
+  desbloquearAudio();
+  sonar("reserva");
+  setTimeout(() => sonar("limpieza"), 1300);
+}
+
+/** Vibración corta en el celular (si el dispositivo la permite). */
+export function vibrar() {
+  try { navigator.vibrate?.([200, 100, 200]); } catch { /* sin vibración */ }
+}

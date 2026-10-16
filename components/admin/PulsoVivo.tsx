@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { desbloquearAudio, fijarSonido, sonar, sonidoActivo } from "@/lib/sonidos";
+import { desbloquearAudio, fijarSonido, probarSonidos, sonar, sonidoActivo, vibrar } from "@/lib/sonidos";
 import Icono from "./Icono";
 
 type Pulso = { ultimaReserva: number; ultimaTarea: number; tareasPendientes: number };
@@ -15,7 +15,7 @@ export default function PulsoVivo({ rol, inicial }: { rol: string; inicial: Puls
 
   useEffect(() => {
     const primerToque = () => desbloquearAudio();
-    window.addEventListener("pointerdown", primerToque, { once: true });
+    for (const ev of ["pointerdown", "keydown", "touchstart"]) window.addEventListener(ev, primerToque, { once: true });
     const ver = rol !== "limpieza";
     const limpia = rol !== "ventas";
     const poner = (texto: string) => {
@@ -31,15 +31,15 @@ export default function PulsoVivo({ rol, inicial }: { rol: string; inicial: Puls
         const p: Pulso = await r.json();
         const antes = ultimo.current;
         let cambio = false;
-        if (p.ultimaTarea > antes.ultimaTarea && limpia) { sonar("limpieza"); poner("🧹 Nueva solicitud de limpieza"); cambio = true; }
-        if (p.ultimaReserva > antes.ultimaReserva && ver) { sonar("reserva"); poner("🛎️ Entró una nueva reserva"); cambio = true; }
+        if (p.ultimaTarea > antes.ultimaTarea && limpia) { sonar("limpieza"); vibrar(); poner("🧹 Nueva solicitud de limpieza"); cambio = true; }
+        if (p.ultimaReserva > antes.ultimaReserva && ver) { sonar("reserva"); vibrar(); poner("🛎️ Entró una nueva reserva"); cambio = true; }
         if (p.tareasPendientes !== antes.tareasPendientes) cambio = true;
         ultimo.current = p;
         if (cambio) router.refresh();
       } catch { /* sin red: se reintenta en el siguiente ciclo */ }
     };
     const t = setInterval(tick, 8000);
-    return () => { clearInterval(t); window.removeEventListener("pointerdown", primerToque); };
+    return () => { clearInterval(t); for (const ev of ["pointerdown", "keydown", "touchstart"]) window.removeEventListener(ev, primerToque); };
   }, [rol, router]);
 
   return (
@@ -57,14 +57,20 @@ export function BotonSonido() {
   const [on, setOn] = useState(true);
   useEffect(() => setOn(sonidoActivo()), []);
   return (
-    <button
-      className="btn btn-sm"
-      aria-pressed={on}
-      aria-label={on ? "Silenciar avisos sonoros" : "Activar avisos sonoros"}
-      onClick={() => { const n = !on; setOn(n); fijarSonido(n); desbloquearAudio(); if (n) sonar("exito"); }}
-    >
-      <Icono n={on ? "sound" : "mute"} className="size-4" />
-      <span className="hidden sm:inline">{on ? "Sonido" : "Silencio"}</span>
-    </button>
+    <div className="flex items-center gap-1">
+      <button
+        className="btn btn-sm"
+        aria-pressed={on}
+        aria-label={on ? "Silenciar avisos sonoros" : "Activar avisos sonoros"}
+        onClick={() => { const n = !on; setOn(n); fijarSonido(n); desbloquearAudio(); if (n) sonar("exito"); }}
+      >
+        <Icono n={on ? "sound" : "mute"} className="size-4" />
+        <span className="hidden sm:inline">{on ? "Sonido" : "Silencio"}</span>
+      </button>
+      <button className="btn btn-sm" onClick={() => { if (!on) { setOn(true); fijarSonido(true); } probarSonidos(); }} aria-label="Probar los avisos sonoros">
+        <Icono n="bell" className="size-4" />
+        <span>Probar</span>
+      </button>
+    </div>
   );
 }
